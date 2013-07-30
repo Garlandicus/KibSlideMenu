@@ -18,3 +18,7 @@ local.properties
 # Eclipse project files
 .classpath
 .project
+
+# Pictures not necessary to be uploaded ATM
+assets/img/photos
+more_assets/

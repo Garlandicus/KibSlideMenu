@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<faq>
+	<question keyword="Kibbe">
+		<q>What is Kibbe?</q>
+		<a>Kibbe is bulgar wheat mixed with other ingredients such as beef, lamb, or chicken in traditional lebanese style</a>
+	</question>
+	<question keyword="Falafel">
+		<q>What is Falafel?</q>
+		<a>Falafel are chickpeas mixed with parsley, and several other spices and seasonings</a>
+	</question>
+</faq>

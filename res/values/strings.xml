@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" >Kibberia Menu Browser
+    </string>
+    <string name="next_button" >Next
+    </string>
+    <string name="last_button" >Last
+    </string>
+    <string name="this_button" >This One
+    </string>
+    <string name="dummy_content" >DUMMY\nCONTENT
+    </string>
+
+</resources>

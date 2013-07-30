@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<menu>
+	<group title="Pockets">
+		<item>
+			<title>Kibbe Pocket</title>
+			<description>Pita bread filled with a grilled Kibbe patty, lettuce, tomatoes, onions, pickles, parsley and hummus</description>
+			<price>Regular Price: $6.49</price>
+			<image>beef_shawarma_pocket.jpg</image>
+		</item>
+		<item>
+			<title>Falafel Pocket</title>
+			<description>Pita bread filled with falafel, lettuce, tomatoes, onions, pickles, parsley and tahini sauce </description>
+			<price>$5.49</price>
+			<image>falafel_pocket.jpg</image>
+		</item>
+		<item>
+			<title>Shawarma Pockets</title>
+			<description>Pita bread filled with your choice of either a grilled chicken, beef or lamb patty with lettuce, tomatoes, onions, pickles, parsley and tahini sauce</description>
+			<price>$6.49</price>
+			<image>chicken_shawarma_pocket.jpg</image>
+		</item>
+		<item>
+			<title>Kafta Pocket</title>
+			<description>Pita bread filled with a grilled beef and lamb Kafta patty, lettuce, tomatoes, onions, pickles, parsley and hummus</description>
+			<price>$6.49</price>
+			<image>beef_shawarma_pocket.jpg</image>
+		</item>0
+		<item>
+			<title>Tabouleh and Hummus Pocket</title>
+			<description>Pita bread filled with a generous mix of our hummus and tabouleh</description>
+			<price>$5.49</price>
+			<image>tabouleh_hummus_pocket.jpg</image>
+		</item>
+		<item>
+			<title>Lentil Tabouleh Pocket</title>
+			<description>Pita bread filled with a generous mix of our moujadra and tabouleh</description>
+			<price>$5.99</price>
+			<image>lentil_tabouleh_pocket.jpg</image>
+		</item>
+	</group>
+	<group title="Salads">
+		<item>
+			<title>Fattoush Salad</title>
+			<description>A crispy baked pita bowl filled with freshly cut lettuce, tomatoes, cucumbers, onions, parsley, and seasoned with mint, sumac, and garlic, drizzled with fresh lemon juice and extra virgin olive oil dressing</description>
+			<price>$4.99</price>
+			<image>fattoush_salad.jpg</image>
+		</item>
+		<item>
+			<title>Shawarma Salad</title>
+			<description>2</description>
+			<price>2</price>
+			<image>shawarma_salad.jpg</image>
+		</item>
+		<item>
+			<title>Falafel Salad</title>
+			<description>3</description>
+			<price>3</price>
+			<image>falafel_salad.jpg</image>
+		</item>
+		<item>
+			<title>Lentil and Cabbage</title>
+			<description>4</description>
+			<price>4</price>
+			<image>4</image>
+		</item>
+		<item>
+			<title>Bulgar Wheat </title>
+			<description>5</description>
+			<price>5</price>
+			<image>5</image>
+		</item>
+	</group>
+	<group title="Baklava">
+		<item>
+			<title>Walnut Baklava</title>
+			<description>A walnut baklava</description>
+			<price>$2.11</price>
+			<image>baklava.jpg</image>
+		</item>
+	</group>
+	<group title="Flatbreads">
+		<item>
+			<title>Wild Oregano Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>wild_oregano_flatbread_01.JPG</image>
+		</item>
+		<item>
+			<title>Goat Cheese Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>goat_cheese_flatbread_01.JPG</image>
+		</item>
+		<item>
+			<title>Potato Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>potato_flatbread_01.JPG</image>
+		</item>
+		<item>
+			<title>Falafel Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>falafel_flatbread_01.JPG</image>
+		</item>
+		<item>
+			<title>Fava Bean Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>fava_bean_flatbread_01.JPG</image>
+		</item>
+		<item>
+			<title>Garlic Chicken Flatbread</title>
+			<description>A Flatbread!</description>
+			<price>$5.99</price>
+			<image>garlic_chicken_flatbread_01.JPG</image>
+		</item>
+	</group>
+</menu>
