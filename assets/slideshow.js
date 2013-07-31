@@ -62,8 +62,12 @@ function toggleMenu(){
 
             //Update CSS
             //document.getElementById('menus').className='hiddenMenus';
-            document.getElementById('items').className='visibleItems';
+            document.getElementById('slideshow').className='slideshowSmall';
+            //document.getElementById('items').className='hiddenItems';
+            document.getElementById('descriptionBox').className='hiddenDB';
             document.getElementById('dbTip').innerText=("Press here to go back to the slideshow");
+
+            /*
             thisDescriptionBox = document.getElementById('descriptionBox');
                 thisDescriptionBox.className='hiddenDB';
                 thisDescriptionBox.style.top=window.innerHeight-descriptionBoxHeightExpanded+"px";
@@ -76,6 +80,7 @@ function toggleMenu(){
             thisSlide = slides.eq(currentSlide);
                 thisSlide[0].childNodes[0].style.height=smallPictureHeight+"px";
                 thisSlide[0].childNodes[0].style.width=smallPictureWidth+"px";
+            */
 
         }
         else //Display the slideshow
@@ -84,9 +89,13 @@ function toggleMenu(){
             menuLastSwitched = new Date();
 
             //update CSS
-            document.getElementById('menus').className='hiddenMenus';
-            document.getElementById('items').className='hiddenItems';
+            document.getElementById('slideshow').className='slideshowFull';
+            //document.getElementById('menus').className='hiddenMenus';
+            //document.getElementById('items').className='hiddenItems';
+            document.getElementById('descriptionBox').className='visibleDB';
             document.getElementById('dbTip').innerText=("Touch here for more information!");
+
+            /*
             thisDescriptionBox = document.getElementById('descriptionBox');
                 thisDescriptionBox.className='visibleDB';
                 thisDescriptionBox.style.top=window.innerHeight - 200+"px";
@@ -99,6 +108,7 @@ function toggleMenu(){
             thisSlide = slides.eq(currentSlide);
                 thisSlide[0].childNodes[0].style.height=bigPictureHeight+"px";
                 thisSlide[0].childNodes[0].style.width=bigPictureWidth+"px";
+                */
         }    
     }
 }
@@ -106,28 +116,30 @@ function toggleMenu(){
 function showItems(groupNumber){
     $('#items li').remove();
 
-    $('#items').append('<li id="menu" class="menuList" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].childNodes[0].nodeValue+'</li>');
-    $('#items').append('<li id="menu" class="menuList" onclick="showItem(0,-1)">Back</li>');
+    $('#items').append('<li id="menu" class="unselectedItem" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].childNodes[0].nodeValue+'</li>');
+    $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem(0,-1)">Back</li>');
     for(i=0; i< list_of_menus[groupNumber].childElementCount; i++){
-        $('#items').append('<li id="menu" class="menuList" onclick="showItem('+groupNumber+','+i+')">'+
+        $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem('+groupNumber+','+i+')">'+
             list_of_menus[groupNumber].childNodes[i*2+1].childNodes[1].textContent+'</li>');
     }
 
     $('#menus').eq(0).attr('class','hiddenMenus');
     $('#items').eq(0).attr('class','visibleItems');
+    /*
     thisMenuBox = document.getElementsByClassName('visibleItems');
         thisMenuBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
         thisMenuBox[0].style.left=whiteSpaceBoarderWidth/2+"px";       
     thisItemBox = document.getElementsByClassName('hiddenMenus');
         thisItemBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
         thisItemBox[0].style.left=whiteSpaceBoarderWidth/2+leftMenuWidth+"px";  
+    */
 }
 
 function showItem(groupNumber, itemNumber){
     if($('#items li').eq(itemNumber+2).attr('class') != 'selectedItem')
     {
         $('#items li').eq(itemNumber+2).attr('class','selectedItem');
-        $('#items li').eq(selectedItem).attr('class','menuList');
+        $('#items li').eq(selectedItem).attr('class','unselectedItem');
         selectedItem = itemNumber+2;
         currentGroup = groupNumber;
     }
@@ -136,12 +148,14 @@ function showItem(groupNumber, itemNumber){
     {
         $('#menus').eq(0).attr('class','visibleMenus')
         $('#items').eq(0).attr('class','hiddenItems');
+        /*
         thisMenuBox = document.getElementsByClassName('hiddenItems');
             thisMenuBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
             thisMenuBox[0].style.left=whiteSpaceBoarderWidth/2+leftMenuWidth+"px";       
         thisItemBox = document.getElementsByClassName('visibleMenus');
             thisItemBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
             thisItemBox[0].style.left=whiteSpaceBoarderWidth/2+"px";  
+        */
     }
     else
     {
@@ -255,6 +269,8 @@ $(window).load(function(){
     xmlhttp = 0;
     loadXMLMenu();
 
+    /*
+
     pictureWHRatioFix=(window.innerWidth-(window.innerHeight*pictureWHRatio))/2;
     whiteSpaceBoarderWidth=whiteSpaceBoarderWidth+pictureWHRatioFix;
 
@@ -297,6 +313,8 @@ $(window).load(function(){
         thisMenuDescription[0].style.top=window.innerHeight-menuDescriptionHeight+"px";  
         thisMenuDescription[0].style.left=(leftMenuWidth+whiteSpaceBoarderWidth/2+8)+"px";
 
+    */
+
 /*
     thisSlides = document.getElementsByClassName('slides');
         thisSlides[0].style.height=window.innerHeight-whiteSpaceBoarder+"px";
@@ -306,7 +324,7 @@ $(window).load(function(){
     //Populate the menus
     list_of_questions = xmlFAQ.getElementsByTagName("question");
     for (q = 0; q < list_of_questions.length; q++){
-        $('#faqs').append('<li id="faq" class="faqList" onclick="expandQuestion('+q+')">'+
+        $('#faqs').append('<li id="faq" class="unselectedItem" onclick="expandQuestion('+q+')">'+
             list_of_questions[q].childNodes[1].childNodes[0].nodeValue+'</li>');
     }
 
@@ -314,7 +332,7 @@ $(window).load(function(){
     list_of_menus = xmlDoc.getElementsByTagName("group"); 
     for (g = 0; g < list_of_menus.length; g++){
         item_offset[0] = 0;
-        $('#menus').append('<li id="menu" class="menuList" onclick="showItems('+g+')">'+
+        $('#menus').append('<li id="menu" class="unselectedItem" onclick="showItems('+g+')">'+
             list_of_menus[g].attributes[0].childNodes[0].nodeValue+'</li>')
         //offset for this group = total number of items in the previous groups
         item_offset[g+1] = item_offset[g] + list_of_menus[g].childElementCount;
@@ -377,6 +395,7 @@ $(window).load(function(){
             });
         }
 
+/*
         $('#slideshow .arrow').click(function(){
             var x=xmlDoc.getElementsByTagName("item"); 
             var nextIndex = 0;  
@@ -393,6 +412,7 @@ $(window).load(function(){
             }
             loadImage(nextItem);
         });
+*/
 
     //},100);
 

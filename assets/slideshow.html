@@ -28,10 +28,10 @@
     </div>
 </div>
 <div id="menubar">
-    <ul id="menus" class="visibleMenus">
+    <ul id="menus" class="hiddenMenus">
         <!--Should be populated by the startup script -->
     </ul>
-    <ul id="items" class="hiddenMenus">
+    <ul id="items" class="hiddenItems">
         <!--should be populated by the first menu selection-->
     </ul>
     <ul id="faqs" class="visibleFAQs">
@@ -39,15 +39,15 @@
     </ul>
 </div>
     <!--Todo: Fix alignment of divs so that the left and right options work-->
-<div class="slideshow">
-    <div id="descriptionBox" class="visibleDB" onclick="toggleMenu()">   
-        <div id="dbTitle">Please wait</div>
-        <div id="dbTip">We are currently preparing the slideshow.</div>
-    </div>
+<div id="slideshow" class="slideshowFull">
     <ul id="slides" class="slides" onclick="toggleMenu()">
         <!--Should be populated by the startup script-->
     </ul>
 </div>
+<div id="descriptionBox" class="visibleDB" onclick="toggleMenu()">   
+        <div id="dbTitle">Please wait</div>
+        <div id="dbTip">We are currently preparing the slideshow.</div>
+    </div>
 <div id="menuDescription" class="menuDescription">
     <div id="itemPrice">Loading...</div>
     <div id="itemText">Loading the text for the next page!</div>
