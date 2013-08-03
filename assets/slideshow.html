@@ -14,43 +14,45 @@
 <!--Looking at http://coding.smashingmagazine.com/2012/04/25/pure-css3-cycling-slideshow/#2 -->
 
 <body>
-<div id="popupBackground" onclick="hideQuestion()">
-    <div>
-        <div class="question">
-            <!--populated by the first FAQ selection-->
-        </div>
-        <div class="answer">
-            <!--populated by the first FAQ selection-->
-        </div>
-        <div class="closeTip">
-            Tap the screen to close this window
+<div id="container" class="container">
+    <div id="popupBackground" onclick="hideQuestion()">
+        <div>
+            <div class="question">
+                <!--populated by the first FAQ selection-->
+            </div>
+            <div class="answer">
+                <!--populated by the first FAQ selection-->
+            </div>
+            <div class="closeTip">
+                Tap the screen to close this window
+            </div>
         </div>
     </div>
-</div>
-<div id="menubar">
-    <ul id="menus" class="hiddenMenus">
-        <!--Should be populated by the startup script -->
-    </ul>
-    <ul id="items" class="hiddenItems">
-        <!--should be populated by the first menu selection-->
-    </ul>
-    <ul id="faqs" class="visibleFAQs">
-        <!--should be populated by the first menu selection-->
-    </ul>
-</div>
-    <!--Todo: Fix alignment of divs so that the left and right options work-->
-<div id="slideshow" class="slideshowFull">
-    <ul id="slides" class="slides" onclick="toggleMenu()">
-        <!--Should be populated by the startup script-->
-    </ul>
-</div>
-<div id="descriptionBox" class="visibleDB" onclick="toggleMenu()">   
-        <div id="dbTitle">Please wait</div>
-        <div id="dbTip">We are currently preparing the slideshow.</div>
+    <div id="menubar">
+        <ul id="menus" class="hiddenMenus">
+            <!--Should be populated by the startup script -->
+        </ul>
+        <ul id="items" class="hiddenItems">
+            <!--should be populated by the first menu selection-->
+        </ul>
+        <ul id="faqs" class="visibleFAQs">
+            <!--should be populated by the first menu selection-->
+        </ul>
     </div>
-<div id="menuDescription" class="menuDescription">
-    <div id="itemPrice">Loading...</div>
-    <div id="itemText">Loading the text for the next page!</div>
+        <!--Todo: Fix alignment of divs so that the left and right options work-->
+    <div id="slideshow" class="slideshowFull">
+        <ul id="slides" class="slides" onclick="toggleMenu()">
+            <!--Should be populated by the startup script-->
+        </ul>
+    </div>
+    <div id="descriptionBox" class="visibleDB" onclick="toggleMenu()">   
+            <div id="dbTitle">Please wait</div>
+            <div id="dbTip">We are currently preparing the slideshow.</div>
+        </div>
+    <div id="menuDescription" class="menuDescription">
+        <div id="itemPrice">Loading...</div>
+        <div id="itemText">Loading the text for the next page!</div>
+    </div>
 </div>
 
 <!--

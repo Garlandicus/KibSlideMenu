@@ -96,10 +96,6 @@ function toggleMenu(){
             document.getElementById('dbTip').innerText=("Touch here for more information!");
 
             /*
-            thisDescriptionBox = document.getElementById('descriptionBox');
-                thisDescriptionBox.className='visibleDB';
-                thisDescriptionBox.style.top=window.innerHeight - 200+"px";
-                thisDescriptionBox.style.left=descriptionBoxLeft+"px";
             thisSlideshow = document.getElementsByClassName('slideshow');
                 thisSlideshow[0].style.width=window.innerWidth-whiteSpaceBoarderWidth+"px";
                 thisSlideshow[0].style.height=window.innerHeight-whiteSpaceBoarderHeight+"px";
@@ -125,14 +121,6 @@ function showItems(groupNumber){
 
     $('#menus').eq(0).attr('class','hiddenMenus');
     $('#items').eq(0).attr('class','visibleItems');
-    /*
-    thisMenuBox = document.getElementsByClassName('visibleItems');
-        thisMenuBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-        thisMenuBox[0].style.left=whiteSpaceBoarderWidth/2+"px";       
-    thisItemBox = document.getElementsByClassName('hiddenMenus');
-        thisItemBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-        thisItemBox[0].style.left=whiteSpaceBoarderWidth/2+leftMenuWidth+"px";  
-    */
 }
 
 function showItem(groupNumber, itemNumber){
@@ -148,14 +136,6 @@ function showItem(groupNumber, itemNumber){
     {
         $('#menus').eq(0).attr('class','visibleMenus')
         $('#items').eq(0).attr('class','hiddenItems');
-        /*
-        thisMenuBox = document.getElementsByClassName('hiddenItems');
-            thisMenuBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-            thisMenuBox[0].style.left=whiteSpaceBoarderWidth/2+leftMenuWidth+"px";       
-        thisItemBox = document.getElementsByClassName('visibleMenus');
-            thisItemBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-            thisItemBox[0].style.left=whiteSpaceBoarderWidth/2+"px";  
-        */
     }
     else
     {
@@ -198,16 +178,14 @@ function loadImage(x){
         //Update picture ratio if necessary
         if(menuDisplay)
         {
-            next[0].childNodes[0].style.height=smallPictureHeight+"px";
-            next[0].childNodes[0].style.width=smallPictureWidth+"px";
+            next[0].childNodes[0].className="slideshowImageFull";
         }
         else
         {
-            next[0].childNodes[0].style.height=bigPictureHeight+"px";
-            next[0].childNodes[0].style.width=bigPictureWidth+"px";
+            next[0].childNodes[0].className="slideshowImageFull";
         }
 
-        if(supportCanvas){
+        if(/*supportCanvas*/false){
 
             // This browser supports canvas, fade it into view:
 
@@ -233,10 +211,16 @@ function loadImage(x){
 
             // This browser does not support canvas.
             // Use the plain version of the slideshow.
-            next.addClass('slideActive').show();
+            li[0].className="slide";
+            next[0].className="slideActive";
+            /*
+            li[0].style.zIndex=1000;
+            next[0].style.zIndex=900;
+            next.show();
+            */
             if(!loading)
             {
-                li.removeClass('slideActive').hide();
+                //li.hide();
                 //If we've successfully loaded the first image, set loading to false (so we remove subsequent images appropriately)
                 loading = false;
             }
@@ -292,27 +276,6 @@ $(window).load(function(){
         //thisSlides[0].style.width=parseInt(thisSlideshow[0].style.width,10)-20+"px";
         thisSlides[0].style.height=parseInt(thisSlideshow[0].style.height,10)-20+"px";
 
-    thisDescriptionBox = document.getElementsByClassName('visibleDB');
-        thisDescriptionBox[0].style.top=window.innerHeight - 200+"px";
-        thisDescriptionBox[0].style.left=descriptionBoxLeft+"px";
-
-    thisFAQBox = document.getElementsByClassName('visibleFAQs');
-        thisFAQBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-        thisFAQBox[0].style.left=window.innerWidth-(whiteSpaceBoarderWidth/2+rightMenuWidth)+"px";
-
-    thisMenuBox = document.getElementsByClassName('visibleMenus');
-        thisMenuBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-        thisMenuBox[0].style.left=whiteSpaceBoarderWidth/2+"px";       
-
-    thisItemBox = document.getElementsByClassName('hiddenMenus');
-        thisItemBox[0].style.top=whiteSpaceBoarderHeight/2+"px";
-        thisItemBox[0].style.left=whiteSpaceBoarderWidth/2+leftMenuWidth+"px";     
-
-    thisMenuDescription = document.getElementsByClassName('menuDescription');
-        thisMenuDescription[0].style.width=window.innerWidth-(whiteSpaceBoarderWidth+leftMenuWidth+rightMenuWidth)-10+"px";
-        thisMenuDescription[0].style.top=window.innerHeight-menuDescriptionHeight+"px";  
-        thisMenuDescription[0].style.left=(leftMenuWidth+whiteSpaceBoarderWidth/2+8)+"px";
-
     */
 
 /*
@@ -341,11 +304,9 @@ $(window).load(function(){
     list_of_items = xmlDoc.getElementsByTagName("item");
     for (i = 0; i < list_of_items.length; i++){
         $('#slides').append('<li id="slide" class="slide" ><img src="img/photos/'+
-            list_of_items[i].childNodes[7].textContent+'" class="slideshowImage" style="position:absolute; height:'+
-            (bigPictureHeight)+'px; width:'+
-            (bigPictureWidth)+'px;" alt="'+
+            list_of_items[i].childNodes[7].textContent+'" height="800" width="600" class="slideshowImageFull" alt="'+
             list_of_items[i].childNodes[1].textContent+'" /></li>');
-        $('.slide').eq(i).hide();
+        //$('.slide').eq(i).hide();
     }
 
     // Testing wether the current browser supports the canvas element:
@@ -381,18 +342,19 @@ $(window).load(function(){
             /*loadImagesIntoMenu();
             var x=xmlDoc. ////////LEFT OFF HERE, TRY LOADING ALL THE IMAGES INTO THE SLIDESHOW BEFORE CREATING THE CANVAS
             $()*/
-            $('#slides img').each(function(){
+            images = document.getElementsByClassName('slideshowImageFull') //.each(function(){
+            for(x = 0; x < images.length; x++)
+            {
 
                 if(!slideshow.width){
                     // Saving the dimensions of the first image:
-                    slideshow.width = this.style.width;
-                    slideshow.height = this.style.height;
+                    slideshow.width = images[x].width;
+                    slideshow.height = images[x].height;
                 }
 
-                // Rendering the modified versions of the images:
-                
-                createCanvasOverlay(this);
-            });
+                // Rendering the modified versions of the images:                
+                createCanvasOverlay(images[x]);
+            }
         }
 
 /*
