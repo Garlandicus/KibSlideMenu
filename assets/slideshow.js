@@ -61,26 +61,9 @@ function toggleMenu(){
             menuLastSwitched = new Date();
 
             //Update CSS
-            //document.getElementById('menus').className='hiddenMenus';
             document.getElementById('slideshow').className='slideshowSmall';
-            //document.getElementById('items').className='hiddenItems';
             document.getElementById('descriptionBox').className='hiddenDB';
             document.getElementById('dbTip').innerText=("Press here to go back to the slideshow");
-
-            /*
-            thisDescriptionBox = document.getElementById('descriptionBox');
-                thisDescriptionBox.className='hiddenDB';
-                thisDescriptionBox.style.top=window.innerHeight-descriptionBoxHeightExpanded+"px";
-                thisDescriptionBox.style.left=descriptionBoxLeft+"px";
-            thisSlideshow = document.getElementsByClassName('slideshow');
-                thisSlideshow[0].style.width=window.innerWidth-(whiteSpaceBoarderWidth+rightMenuWidth+leftMenuWidth)+"px";
-                thisSlideshow[0].style.height=window.innerHeight-descriptionBoxHeight+"px";
-                thisSlideshow[0].style.top=(whiteSpaceBoarderHeight/2)+"px";
-                thisSlideshow[0].style.left=(whiteSpaceBoarderWidth/2)+leftMenuWidth+"px";
-            thisSlide = slides.eq(currentSlide);
-                thisSlide[0].childNodes[0].style.height=smallPictureHeight+"px";
-                thisSlide[0].childNodes[0].style.width=smallPictureWidth+"px";
-            */
 
         }
         else //Display the slideshow
@@ -90,21 +73,8 @@ function toggleMenu(){
 
             //update CSS
             document.getElementById('slideshow').className='slideshowFull';
-            //document.getElementById('menus').className='hiddenMenus';
-            //document.getElementById('items').className='hiddenItems';
             document.getElementById('descriptionBox').className='visibleDB';
             document.getElementById('dbTip').innerText=("Touch here for more information!");
-
-            /*
-            thisSlideshow = document.getElementsByClassName('slideshow');
-                thisSlideshow[0].style.width=window.innerWidth-whiteSpaceBoarderWidth+"px";
-                thisSlideshow[0].style.height=window.innerHeight-whiteSpaceBoarderHeight+"px";
-                thisSlideshow[0].style.top=(whiteSpaceBoarderHeight/2)+"px";
-                thisSlideshow[0].style.left=(whiteSpaceBoarderWidth/2)+"px";
-            thisSlide = slides.eq(currentSlide);
-                thisSlide[0].childNodes[0].style.height=bigPictureHeight+"px";
-                thisSlide[0].childNodes[0].style.width=bigPictureWidth+"px";
-                */
         }    
     }
 }
@@ -166,7 +136,6 @@ function loadImage(x){
             descriptionBox = $('#descriptionBox').find("div"),
             menuBox        = $('#menuDescription').find("div"),
             nextItem       = x;
-            //image          = slides.eq(nextSlide).find('img'); Don't need this since we're loading all the images at runtime
         
         //Update Description box
         descriptionBox.eq(0).html(list_of_items[nextItem].getElementsByTagName("title")[0].childNodes[0].nodeValue);
@@ -175,17 +144,7 @@ function loadImage(x){
 
         var next = slides.eq(nextSlide);
 
-        //Update picture ratio if necessary
-        if(menuDisplay)
-        {
-            next[0].childNodes[0].className="slideshowImageFull";
-        }
-        else
-        {
-            next[0].childNodes[0].className="slideshowImageFull";
-        }
-
-        if(/*supportCanvas*/false){
+        if(/*supportCanvas*/false){ //disabling fancy animations
 
             // This browser supports canvas, fade it into view:
 
@@ -213,15 +172,8 @@ function loadImage(x){
             // Use the plain version of the slideshow.
             li[0].className="slide";
             next[0].className="slideActive";
-            /*
-            li[0].style.zIndex=1000;
-            next[0].style.zIndex=900;
-            next.show();
-            */
             if(!loading)
             {
-                //li.hide();
-                //If we've successfully loaded the first image, set loading to false (so we remove subsequent images appropriately)
                 loading = false;
             }
         }
@@ -252,37 +204,6 @@ $(window).load(function(){
     xmlDoc  = 0,
     xmlhttp = 0;
     loadXMLMenu();
-
-    /*
-
-    pictureWHRatioFix=(window.innerWidth-(window.innerHeight*pictureWHRatio))/2;
-    whiteSpaceBoarderWidth=whiteSpaceBoarderWidth+pictureWHRatioFix;
-
-    bigPictureWidth=window.innerWidth-whiteSpaceBoarderWidth-20;
-    bigPictureHeight=window.innerHeight-whiteSpaceBoarderHeight-20;
-
-    smallPictureWidth=window.innerWidth-(whiteSpaceBoarderWidth+rightMenuWidth+leftMenuWidth)-20;
-    smallPictureHeight=window.innerHeight-(whiteSpaceBoarderHeight/2+menuDescriptionHeight)-20;
-
-
-    //Automatically correct the CSS stylesheets for the slideshow to spread to the full size of the screen
-    thisSlideshow = document.getElementsByClassName('slideshow');
-        thisSlideshow[0].style.width=window.innerWidth-whiteSpaceBoarderWidth+"px";
-        thisSlideshow[0].style.height=window.innerHeight-whiteSpaceBoarderHeight+"px";
-        thisSlideshow[0].style.top=(whiteSpaceBoarderHeight/2)+"px";
-        thisSlideshow[0].style.left=(whiteSpaceBoarderWidth/2)+"px";
-
-    thisSlides = document.getElementsByClassName('slides');
-        //thisSlides[0].style.width=parseInt(thisSlideshow[0].style.width,10)-20+"px";
-        thisSlides[0].style.height=parseInt(thisSlideshow[0].style.height,10)-20+"px";
-
-    */
-
-/*
-    thisSlides = document.getElementsByClassName('slides');
-        thisSlides[0].style.height=window.innerHeight-whiteSpaceBoarder+"px";
-        thisSlides[0].style.width=window.innerWidth-whiteSpaceBoarder+"px";
-*/
 
     //Populate the menus
     list_of_questions = xmlFAQ.getElementsByTagName("question");
@@ -334,7 +255,7 @@ $(window).load(function(){
             }
             menuLastSwitched = d;
         }
-    }, 5000);
+    }, 10000);
 
     //setTimeout(function(){
 
@@ -356,6 +277,17 @@ $(window).load(function(){
                 createCanvasOverlay(images[x]);
             }
         }
+
+        //Add swipe recognition
+        $("#slideshow").touchwipe({
+             wipeRight: function() { loadImage(currentItem <= 0 ? x.length-1 : currentItem-1); menuLastSwitched = new Date();},
+             wipeLeft: function() { loadImage(currentItem >= x.length-1 ? 0 : currentItem+1); menuLastSwitched = new Date();},
+             wipeUp: function() { alert("up"); },
+             wipeDown: function() { alert("down"); },
+             min_move_x: 20,
+             min_move_y: 20,
+             preventDefaultEvents: true
+        });
 
 /*
         $('#slideshow .arrow').click(function(){
