@@ -83,22 +83,22 @@ function showItems(groupNumber){
     $('#items li').remove();
 
     $('#items').append('<li id="menu" class="unselectedItem" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].childNodes[0].nodeValue+'</li>');
-    $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem(0,-1)">Back</li>');
     for(i=0; i< list_of_menus[groupNumber].childElementCount; i++){
         $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem('+groupNumber+','+i+')">'+
             list_of_menus[groupNumber].childNodes[i*2+1].childNodes[1].textContent+'</li>');
     }
+    $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem(0,-1)">Back</li>');
 
     $('#menus').eq(0).attr('class','hiddenMenus');
     $('#items').eq(0).attr('class','visibleItems');
 }
 
 function showItem(groupNumber, itemNumber){
-    if($('#items li').eq(itemNumber+2).attr('class') != 'selectedItem')
+    if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem')
     {
-        $('#items li').eq(itemNumber+2).attr('class','selectedItem');
+        $('#items li').eq(itemNumber+1).attr('class','selectedItem');
         $('#items li').eq(selectedItem).attr('class','unselectedItem');
-        selectedItem = itemNumber+2;
+        selectedItem = itemNumber+1;
         currentGroup = groupNumber;
     }
 
@@ -140,7 +140,8 @@ function loadImage(x){
         //Update Description box
         descriptionBox.eq(0).html(list_of_items[nextItem].getElementsByTagName("title")[0].childNodes[0].nodeValue);
         menuBox.eq(0).html(list_of_items[nextItem].getElementsByTagName("price")[0].childNodes[0].nodeValue);
-        menuBox.eq(1).html(list_of_items[nextItem].getElementsByTagName("description")[0].childNodes[0].nodeValue);
+        menuBox.eq(1).html(list_of_items[nextItem].getElementsByTagName("price2")[0].childNodes[0].nodeValue);
+        menuBox.eq(2).html(list_of_items[nextItem].getElementsByTagName("description")[0].childNodes[0].nodeValue);
 
         var next = slides.eq(nextSlide);
 
@@ -222,10 +223,11 @@ $(window).load(function(){
         item_offset[g+1] = item_offset[g] + list_of_menus[g].childElementCount;
     }
 
+    //Populate the list of slides
     list_of_items = xmlDoc.getElementsByTagName("item");
     for (i = 0; i < list_of_items.length; i++){
         $('#slides').append('<li id="slide" class="slide" ><img src="img/photos/'+
-            list_of_items[i].childNodes[7].textContent+'" height="800" width="600" class="slideshowImageFull" alt="'+
+            list_of_items[i].childNodes[9].textContent+'" height="800" width="600" class="slideshowImageFull" alt="'+
             list_of_items[i].childNodes[1].textContent+'" /></li>');
         //$('.slide').eq(i).hide();
     }
