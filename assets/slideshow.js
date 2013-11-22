@@ -195,7 +195,7 @@ function loadImage(x){
                 loading = false;
             });
         }
-        else {.
+        else {
             // Use the plain version of the slideshow.
             li[0].className="slide";
             next[0].className="slideActive";
