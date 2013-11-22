@@ -5,23 +5,7 @@ var menuSlidesActive        = false;
 var selectedItem            = -1;
 var menuSwitchTime          = 1000;
 var menuLastSwitched        = 0;
-
-var whiteSpaceBoarderHeight = 100;
-var whiteSpaceBoarderWidth  = 100;
-var pictureWHRatio          = 1.25;
-var pictureWHRatioFix       = 0;
-var smallPictureHeight      = 0;
-var smallPictureWidth       = 0;
-var bigPictureHeight        = 0;
-var bigPictureWidth         = 0;
-var descriptionBoxHeight    = 350;
-var descriptionBoxLeft      = 25;
-var descriptionBoxHeightExpanded = 325;
-var menuDescriptionHeight   = 300;
-var leftMenuWidth           = 200;
-var rightMenuWidth          = 200;
-var faqWindowHeight         = 100;
-var faqWindowWidth          = 200;
+var fadeTransitions         = true;
 
 var list_of_menus           = "";
 var list_of_items           = "";
@@ -38,7 +22,6 @@ var $xmlFileLocation = "menu.xml",
     item_offset = new Array();
 
 //Canvas and Slideshow Vars
-var supportCanvas = 0;
 var slides = 0,
     currentItem = 0,
     currentSlide = 0,
@@ -87,7 +70,7 @@ function toggleMenu(){
 
 function closeMenu(){
     $('#menuSlides').eq(0).attr('class','slidesHidden');
-    $('#slides').eq(0).attr('class','slidesVisiblew');
+    $('#slides').eq(0).attr('class','slidesVisible');
     menuSlidesActive = false;
     loadImage(currentSlide);
 }
@@ -95,11 +78,14 @@ function closeMenu(){
 function showItems(groupNumber){
     $('#items li').remove();
 
+    //Add the Item Group Header
     $('#items').append('<li id="menu" class="unselectedItem" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].childNodes[0].nodeValue+'</li>');
+    //Add the Individual Items
     for(i=0; i< list_of_menus[groupNumber].childElementCount; i++){
         $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem('+groupNumber+','+i+')">'+
             list_of_menus[groupNumber].childNodes[i*2+1].childNodes[1].textContent+'</li>');
     }
+    //Add the Back button
     $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem(0,-1)">Back</li>');
 
     $('#menus').eq(0).attr('class','hiddenMenus');
@@ -162,21 +148,18 @@ function loadImage(x){
         var nextSlide   = x;
         var li          = document.getElementById('menuSlides').childNodes[x+3];
         var image       = li.getElementsByTagName('img')[0];
-        //descriptionBox  = document.getElementById('descriptionBox');    //$('#descriptionBox').find("div"),
-        //menuBox         = document.getElementById('menuDescription');   //$('#menuDescription').find("div"),
 
         //Update Description box
         $("#dbTitle")[0].innerHTML=list_of_menus[x].getAttribute("title");
         $("#itemPrice")[0].innerHTML="";
         $("#itemText")[0].innerHTML=list_of_menus[x].getAttribute("description");
 
-        // This browser does not support canvas.
-        // Use the plain version of the slideshow.
+        //Update the active slide and last slide
         li.className="slideActive";
         lastSlide = li;
-        //next[0].className="slideActive";
 
     }
+    //Transition process for food items
     else if(currentItem != x || loading)
     {
         var nextSlide      = x;//currentSlide >= slides.length-1 ? 0 : currentSlide+1;
@@ -197,8 +180,7 @@ function loadImage(x){
 
         var next = slides.eq(nextSlide);
 
-        if(supportCanvas){
-            // This browser supports canvas, fade it into view:
+        if(fadeTransitions){
             image.fadeIn(function(){
                 // Show the next slide below the current one:
                 li[0].style.zIndex=1000;
@@ -207,17 +189,13 @@ function loadImage(x){
                 
                 if(!loading)
                 {
-                    // Fade the current slide out of view:
-                    li.fadeOut(function(){                        
-                        //Just fade out man
-                    })
+                    li.fadeOut();
                 }
                 //If we've successfully loaded the first image, set loading to false (so we remove subsequent images appropriately)
                 loading = false;
             });
         }
-        else {
-            // This browser does not support canvas.
+        else {.
             // Use the plain version of the slideshow.
             li[0].className="slide";
             next[0].className="slideActive";
@@ -280,15 +258,7 @@ $(window).load(function(){
         $('#slides').append('<li id="slide" class="slide" ><img src="img/photos/'+
             list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" height="800" width="600" class="slideshowImageFull" alt="'+
             list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" /></li>');
-        //$('.slide').eq(i).hide();
     }
-
-    // Testing wether the current browser supports the canvas element:
-    supportCanvas = 'getContext' in document.createElement('canvas');
-
-    // The canvas manipulations of the images are CPU intensive,
-    // this is why we are using setTimeout to make them asynchronous
-    // and improve the responsiveness of the page.
 
     slides = $('.slide'),
     currentItem = 0,
@@ -310,58 +280,27 @@ $(window).load(function(){
         }
     }, 10000);
 
-    //setTimeout(function(){
+    images = document.getElementsByClassName('slideshowImageFull') //.each(function(){
+    for(x = 0; x < images.length; x++)
+    {
 
-        if(supportCanvas){
-            /*loadImagesIntoMenu();
-            var x=xmlDoc. ////////LEFT OFF HERE, TRY LOADING ALL THE IMAGES INTO THE SLIDESHOW BEFORE CREATING THE CANVAS
-            $()*/
-            images = document.getElementsByClassName('slideshowImageFull') //.each(function(){
-            for(x = 0; x < images.length; x++)
-            {
-
-                if(!slideshow.width){
-                    // Saving the dimensions of the first image:
-                    slideshow.width = images[x].width;
-                    slideshow.height = images[x].height;
-                }
-
-                // Rendering the modified versions of the images:                
-                createCanvasOverlay(images[x]);
-            }
+        if(!slideshow.width){
+            // Saving the dimensions of the first image:
+            slideshow.width = images[x].width;
+            slideshow.height = images[x].height;
         }
+    }
 
-        //Add swipe recognition
-        $("#slideshow").touchwipe({
-             wipeRight: function() { loadImage(currentItem <= 0 ? x.length-1 : currentItem-1); menuLastSwitched = new Date();},
-             wipeLeft: function() { loadImage(currentItem >= x.length-1 ? 0 : currentItem+1); menuLastSwitched = new Date();},
-             wipeUp: function() { alert("up"); },
-             wipeDown: function() { alert("down"); },
-             min_move_x: 20,
-             min_move_y: 20,
-             preventDefaultEvents: true
-        });
-
-/*
-        $('#slideshow .arrow').click(function(){
-            var x=xmlDoc.getElementsByTagName("item"); 
-            var nextIndex = 0;  
-
-            // Depending on whether this is the next or previous
-            // arrow, calculate the index of the next slide accordingly. 
-
-            if($(this).hasClass('next')){
-                nextItem = currentItem >= x.length-1 ? 0 : currentItem+1;
-                
-            }
-            else {
-                nextItem = currentItem <= 0 ? x.length-1 : currentItem-1;
-            }
-            loadImage(nextItem);
-        });
-*/
-
-    //},100);
+    //Add swipe recognition
+    $("#slideshow").touchwipe({
+         wipeRight: function() { loadImage(currentItem <= 0 ? x.length-1 : currentItem-1); menuLastSwitched = new Date();},
+         wipeLeft: function() { loadImage(currentItem >= x.length-1 ? 0 : currentItem+1); menuLastSwitched = new Date();},
+         wipeUp: function() { alert("up"); },
+         wipeDown: function() { alert("down"); },
+         min_move_x: 20,
+         min_move_y: 20,
+         preventDefaultEvents: true
+    });
 
     function loadXMLMenu(){
                 
@@ -384,57 +323,7 @@ $(window).load(function(){
 
     }
 
-
-
-    // This function takes an image and renders
-    // a version of it similar to the Overlay blending
-    // mode in Photoshop.
-
-    function createCanvasOverlay(image){
-
-        var canvas           = document.createElement('canvas'),
-            canvasContext    = canvas.getContext("2d");
-
-        // Make it the same size as the image
-        canvas.width = parseInt(slideshow.width,10);
-        canvas.height = parseInt(slideshow.height,10);
-
-        // Drawing the default version of the image on the canvas:
-        canvasContext.drawImage(image,0,0);
-
-        // Taking the image data and storing it in the imageData array:
-        var imageData    = canvasContext.getImageData(0,0,canvas.width,canvas.height);
-        var data        = imageData.data;
-
-        // Loop through all the pixels in the imageData array, and modify
-        // the red, green, and blue color values.
-
-        for(var i = 0,z=data.length;i<z;i++){
-
-            // The values for red, green and blue are consecutive elements
-            // in the imageData array. We modify the three of them at once:
-
-            data[i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-                        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
-            data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-                        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
-            data[++i] = ((data[i] < 128) ? (2*data[i]*data[i] / 255) :
-                        (255 - 2 * (255 - data[i]) * (255 - data[i]) / 255));
-
-            // After the RGB channels comes the alpha value, which we leave the same.
-            ++i;
-        }
-
-        // Putting the modified imageData back on the canvas.
-        canvasContext.putImageData(imageData,0,0,0,0,imageData.width,imageData.height);
-
-        // Inserting the canvas in the DOM, before the image:
-        //image.parentNode.insertBefore(canvas,image);
-    }
-
     loadImage(0);
     $('#dbTip').eq(0).html("Touch here for more information!");
-    //End of window load function ====================================================================================================//
-
 
 });
