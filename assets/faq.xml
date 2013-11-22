@@ -8,4 +8,28 @@
 		<q>What is Falafel?</q>
 		<a>Falafel are chickpeas mixed with parsley, and several other spices and seasonings</a>
 	</question>
+	<question keyword="Shawarma">
+		<q>What is Shawarma?</q>
+		<a>Shawarma refers to the type of seasonsings used in preparing the beef, lamb, or chicken - The chicken shawarma is seasoned with just the right mix of garlic, olive oil, lemon juice, and several seasonings while the beef and lamb shawarma are perpared with a traditional mix of 10 different seasonings and spices for an authentic lebanese flavor</a>
+	</question>
+	<question keyword="Fattoush">
+		<q>What is a Fattoush?</q>
+		<a>A fattoush is a traditional lebanese salad with freshly cut lettuce, tomatoes, cucumbers, onions, and parsley, seasoned with mint, sumac, and garlic, drizzled with fresh lemon juice and extra virgin olive oil, and served in a baked pita bread bowl</a>
+	</question>
+	<question keyword="Tabouleh">
+		<q>What is Tabouleh?</q>
+		<a>Tabouleh is a traditional lebanese salad composed of parsley, tomatoes, onions, and olives, drizzled with fresh lemon juice and extra virgin olive oil.</a>
+	</question>
+	<question keyword="Shish Taouk">
+		<q>What is Shish Taouk?</q>
+		<a>Shish Taouk are marinated chicken kebabs</a>
+	</question>
+	<question keyword="Kafta">
+		<q>What is Kafta?</q>
+		<a>Kafta is grilled beef and lamb mixed with onions and parsley</a>
+	</question>
+	<question keyword="Moujadra">
+		<q>What is Moujadra?</q>
+		<a>Moujadra is prepared by mixing warm lentils with sauteed onions and rice</a>
+	</question>
 </faq>

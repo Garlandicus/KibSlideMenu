@@ -1,26 +1,31 @@
 //Global Variables
-var loading = true;
-var menuDisplay = false;
-var selectedItem = -1;
-var menuSwitchTime = 1000;
-var menuLastSwitched  = 0;
+var loading                 = true;
+var menuDisplay             = false;
+var menuSlidesActive        = false;
+var selectedItem            = -1;
+var menuSwitchTime          = 1000;
+var menuLastSwitched        = 0;
 
 var whiteSpaceBoarderHeight = 100;
-var whiteSpaceBoarderWidth = 100;
-var pictureWHRatio = 1.25;
-var pictureWHRatioFix = 0;
-var smallPictureHeight=0;
-var smallPictureWidth=0;
-var bigPictureHeight=0;
-var bigPictureWidth=0;
-var descriptionBoxHeight = 350;
-var descriptionBoxLeft = 25;
+var whiteSpaceBoarderWidth  = 100;
+var pictureWHRatio          = 1.25;
+var pictureWHRatioFix       = 0;
+var smallPictureHeight      = 0;
+var smallPictureWidth       = 0;
+var bigPictureHeight        = 0;
+var bigPictureWidth         = 0;
+var descriptionBoxHeight    = 350;
+var descriptionBoxLeft      = 25;
 var descriptionBoxHeightExpanded = 325;
-var menuDescriptionHeight = 300;
-var leftMenuWidth = 200;
-var rightMenuWidth = 200;
-var faqWindowHeight = 100;
-var faqWindowWidth = 200;
+var menuDescriptionHeight   = 300;
+var leftMenuWidth           = 200;
+var rightMenuWidth          = 200;
+var faqWindowHeight         = 100;
+var faqWindowWidth          = 200;
+
+var list_of_menus           = "";
+var list_of_items           = "";
+var list_of_questions       = "";
 
 
 // XML Menu location and Vars
@@ -38,6 +43,7 @@ var slides = 0,
     currentItem = 0,
     currentSlide = 0,
     currentGroup = 0,
+    lastSlide = 0,
     slideshow = 0;
 
 showAndroidToast("slideshow.js declarations complete");
@@ -79,6 +85,13 @@ function toggleMenu(){
     }
 }
 
+function closeMenu(){
+    $('#menuSlides').eq(0).attr('class','slidesHidden');
+    $('#slides').eq(0).attr('class','slidesVisiblew');
+    menuSlidesActive = false;
+    loadImage(currentSlide);
+}
+
 function showItems(groupNumber){
     $('#items li').remove();
 
@@ -91,10 +104,23 @@ function showItems(groupNumber){
 
     $('#menus').eq(0).attr('class','hiddenMenus');
     $('#items').eq(0).attr('class','visibleItems');
+
+    if(menuSlidesActive)
+    {
+        $('#menuSlides').eq(0).attr('class','slidesVisible');
+        $('#slides').eq(0).attr('class','slidesHidden');
+        currentGroup = groupNumber;
+        loadImage(groupNumber);
+    }
 }
 
-function showItem(groupNumber, itemNumber){
-    if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem')
+function showItem(groupNumber, itemNumber){    
+
+    $('#menuSlides').eq(0).attr('class','slidesHidden');
+    $('#slides').eq(0).attr('class','slidesVisible');
+    menuSlidesActive = false;
+
+    if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem' && itemNumber >=0)
     {
         $('#items li').eq(itemNumber+1).attr('class','selectedItem');
         $('#items li').eq(selectedItem).attr('class','unselectedItem');
@@ -106,6 +132,11 @@ function showItem(groupNumber, itemNumber){
     {
         $('#menus').eq(0).attr('class','visibleMenus')
         $('#items').eq(0).attr('class','hiddenItems');
+
+        $('#menuSlides').eq(0).attr('class','slidesVisible');
+        $('#slides').eq(0).attr('class','slidesHidden');
+        menuSlidesActive = true;
+        loadImage(currentGroup);
     }
     else
     {
@@ -125,7 +156,28 @@ function getGroupByItem(itemNumber)
 }
 
 function loadImage(x){
-    if(currentItem != x || loading)
+    if(menuSlidesActive == true)
+    {
+        lastSlide.className= "slide";
+        var nextSlide   = x;
+        var li          = document.getElementById('menuSlides').childNodes[x+3];
+        var image       = li.getElementsByTagName('img')[0];
+        //descriptionBox  = document.getElementById('descriptionBox');    //$('#descriptionBox').find("div"),
+        //menuBox         = document.getElementById('menuDescription');   //$('#menuDescription').find("div"),
+
+        //Update Description box
+        $("#dbTitle")[0].innerHTML=list_of_menus[x].getAttribute("title");
+        $("#itemPrice")[0].innerHTML="";
+        $("#itemText")[0].innerHTML=list_of_menus[x].getAttribute("description");
+
+        // This browser does not support canvas.
+        // Use the plain version of the slideshow.
+        li.className="slideActive";
+        lastSlide = li;
+        //next[0].className="slideActive";
+
+    }
+    else if(currentItem != x || loading)
     {
         var nextSlide      = x;//currentSlide >= slides.length-1 ? 0 : currentSlide+1;
         currentGroup = getGroupByItem(x);
@@ -145,12 +197,9 @@ function loadImage(x){
 
         var next = slides.eq(nextSlide);
 
-        if(/*supportCanvas*/false){ //disabling fancy animations
-
+        if(supportCanvas){
             // This browser supports canvas, fade it into view:
-
             image.fadeIn(function(){
-
                 // Show the next slide below the current one:
                 li[0].style.zIndex=1000;
                 next[0].style.zIndex=900;
@@ -168,7 +217,6 @@ function loadImage(x){
             });
         }
         else {
-
             // This browser does not support canvas.
             // Use the plain version of the slideshow.
             li[0].className="slide";
@@ -210,7 +258,7 @@ $(window).load(function(){
     list_of_questions = xmlFAQ.getElementsByTagName("question");
     for (q = 0; q < list_of_questions.length; q++){
         $('#faqs').append('<li id="faq" class="unselectedItem" onclick="expandQuestion('+q+')">'+
-            list_of_questions[q].childNodes[1].childNodes[0].nodeValue+'</li>');
+            list_of_questions[q].getElementsByTagName("q")[0].childNodes[0].nodeValue+'</li>');
     }
 
 
@@ -218,7 +266,10 @@ $(window).load(function(){
     for (g = 0; g < list_of_menus.length; g++){
         item_offset[0] = 0;
         $('#menus').append('<li id="menu" class="unselectedItem" onclick="showItems('+g+')">'+
-            list_of_menus[g].attributes[0].childNodes[0].nodeValue+'</li>')
+            list_of_menus[g].getAttribute("title")+'</li>')
+        $('#menuSlides').append('<li id="slide" class="slide" ><img src="img/photos/'+
+            list_of_menus[g].getAttribute("homeImage")+'" height="800" width="600" class="slideshowImageFull" alt="'+
+            list_of_menus[g].getAttribute("title")+'" /></li>');
         //offset for this group = total number of items in the previous groups
         item_offset[g+1] = item_offset[g] + list_of_menus[g].childElementCount;
     }
@@ -227,8 +278,8 @@ $(window).load(function(){
     list_of_items = xmlDoc.getElementsByTagName("item");
     for (i = 0; i < list_of_items.length; i++){
         $('#slides').append('<li id="slide" class="slide" ><img src="img/photos/'+
-            list_of_items[i].childNodes[9].textContent+'" height="800" width="600" class="slideshowImageFull" alt="'+
-            list_of_items[i].childNodes[1].textContent+'" /></li>');
+            list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" height="800" width="600" class="slideshowImageFull" alt="'+
+            list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" /></li>');
         //$('.slide').eq(i).hide();
     }
 

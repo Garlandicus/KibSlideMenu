@@ -4,7 +4,7 @@ body{
 }
 
 .menuDescription{
-    border-width:5px;
+    border-width:0px;
     border-top-width:0px;
     border-color:#00FF2F;
     border-style:solid;
@@ -115,7 +115,7 @@ body{
     text-align:center;
     background-color:#D2ED64;
 
-    border-width:5px;
+    border-width:0px;
     border-color:#00FF2F;
     border-style:solid;
 
@@ -302,7 +302,7 @@ body{
 }
 
 .slideshowFull{
-    border-width:5px;
+    border-width:0px;
     border-top-width:0px;
     border-color:#00FF2F;
     border-style:solid;
@@ -324,7 +324,7 @@ body{
 }
 
 .slideshowSmall{
-    border-width:5px;
+    border-width:0px;
     border-top-width:0px;
     border-color:#00FF2F;
     border-style:solid;
@@ -345,7 +345,7 @@ body{
     -webkit-transition: left 1s, width 1s, height 1s, bottom 1s;
 }
 
-.slides{
+.slidesVisible{
     padding:0px;
     margin:0px;
     height:100%;
@@ -355,15 +355,31 @@ body{
     list-style:none outside none;
     overflow:hidden;
 
-    -webkit-transition: left 1s, width 1s, height 1s, bottom 1s;
+    -webkit-transition-property: width, height, top, left;
+    -webkit-transition-duration: 1s;
+
+}
+
+.slidesHidden{
+    padding:0px;
+    margin:0px;
+    height:0%;
+    width:100%;
+    position:relative;
+
+    list-style:none outside none;
+    overflow:hidden;
+
+    -webkit-transition-property: width, height, top, left;
+    -webkit-transition-duration: 1s;
 
 }
 
 .slide{    
-    top:5px;
+    top:0px;
     height:100%;
     width:100%;
-    position:relative;
+    position:absolute;
     list-style: none;
     display:none;
     z-index:10;
@@ -390,7 +406,7 @@ body{
 }
 
 #slideshow .slideActive{
-    top:5px;
+    top:0px;
     height:100%;
     width:100%;
     position:relative;

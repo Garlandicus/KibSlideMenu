@@ -226,11 +226,25 @@
 	</group>
 	<group title="Platters">
 		<item>
-			<title>null</title>
-			<description>null</description>
-			<price>null</price>
-			<price2>null</price2>
-			<image>null</image>
+			<title>Chicken Shish Taouk Platter</title>
+			<description>Grilled chicken kebabs marinated in garlic sauce, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
+			<price>$12.99</price>
+			<price2>placeholder.png</price2>
+			<image>shish_taouk_platter.jpg</image>
+		</item>
+		<item>
+			<title>Beef Kebab Platter</title>
+			<description>Grilled and seasoned beef tenderloin kebabs, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
+			<price>$15.99</price>
+			<price2>placeholder.png</price2>
+			<image>beef_kebab_platter.jpg</image>
+		</item>
+		<item>
+			<title>Lamb Kebab Platter</title>
+			<description>Grilled and seasoned lamb tenderloin kebabs, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
+			<price>$21.99</price>
+			<price2>placeholder.png</price2>
+			<image>lamb_kebab_platter.jpg</image>
 		</item>
 	</group>
 	<group title="Baklava">
@@ -238,36 +252,36 @@
 			<title>Baklava</title>
 			<description>Home-made baklava squares with pistachios, walnuts, or cashews inbetween layers of filo dough drizzled with simple syrup</description>
 			<price>$2.11</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>baklava.jpg</image>
 		</item>
 		<item>
 			<title>Baklava Fingers</title>
 			<description>Crushed pistachios, walnuts, cashews, or almonds wrapped in layers of filo dough drizzled with simple syrup</description>
 			<price>$2.11</price>
-			<price2>null</price2>
-			<image>baklava.jpg</image>
+			<price2>placeholder.png</price2>
+			<image>baklava_fingers.jpg</image>
 		</item>
 		<item>
 			<title>Cinnamon Walnut Log</title>
 			<description>A cinnamon walnut log.</description>
 			<price>$2.11</price>
-			<price2>null</price2>
-			<image>baklava.jpg</image>
+			<price2>placeholder.png</price2>
+			<image>cinnamon_walnut_logs.jpg</image>
 		</item>
 		<item>
 			<title>Maamoul</title>
 			<description>A maamoul.</description>
 			<price>$2.11</price>
-			<price2>null</price2>
-			<image>baklava.jpg</image>
+			<price2>placeholder.png</price2>
+			<image>maamoul.jpg</image>
 		</item>
 		<item>
 			<title>Truffles</title>
 			<description>Pistachio or hazelnut truffles. also comes in hazelnut variety.</description>
 			<price>$2.11</price>
-			<price2>null</price2>
-			<image>baklava.jpg</image>
+			<price2>placeholder.png</price2>
+			<image>truffles.jpg</image>
 		</item>
 	</group>
 	<group title="Flatbreads">
@@ -275,42 +289,42 @@
 			<title>Wild Oregano Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>wild_oregano_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Goat Cheese Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>goat_cheese_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Potato Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>potato_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Falafel Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>falafel_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Fava Bean Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>fava_bean_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Garlic Chicken Flatbread</title>
 			<description>A Flatbread!</description>
 			<price>$5.99</price>
-			<price2>null</price2>
+			<price2>placeholder.png</price2>
 			<image>garlic_chicken_flatbread_01.JPG</image>
 		</item>
 	</group>

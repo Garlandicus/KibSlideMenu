@@ -16,7 +16,7 @@
 
 <body>
 <div id="container" class="container">
-    <div id="popupBackground" onclick="hideQuestion()">
+    <div id="popupBackground" class="popupHidden" onclick="hideQuestion()">
         <div>
             <div class="question">
                 <!--populated by the first FAQ selection-->
@@ -42,7 +42,10 @@
     </div>
         <!--Todo: Fix alignment of divs so that the left and right options work-->
     <div id="slideshow" class="slideshowFull">
-        <ul id="slides" class="slides" onclick="toggleMenu()">
+        <ul id="slides" class="slidesVisible" onclick="toggleMenu()">
+            <!--Should be populated by the startup script-->
+        </ul>
+        <ul id="menuSlides" class="slidesHidden" onclick="closeMenu()">
             <!--Should be populated by the startup script-->
         </ul>
     </div>
