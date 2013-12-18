@@ -1,87 +1,87 @@
 <?xml version="1.0"?>
 <menu>
-	<group title="Pockets" homeImage="pockets.jpg" description="A pita pocket sandwich, add a side of hummus, tabouleh, and pita bread for only $2.50!">
+	<group title="Pockets" homeImage="kibbe_pocket.jpg" description="A pita pocket sandwich, also available as a combo with hummus, tabouleh, and pita bread on the side!">
 		<item>
 			<title>Kibbe Pocket</title>
 			<description>Pita bread filled with a grilled beef or lamb kibbe patty, lettuce, tomatoes, onions, pickles, parsley and hummus</description>
 			<price>Beef: $7.49, Combo: $10.29</price>
 			<price2>Lamb: $8.99, Combo: $11.79</price2>
-			<image>beef_shawarma_pocket.jpg</image>
+			<image>kibbe_pocket.jpg</image>
 		</item>
 		<item>
 			<title>Falafel Pocket</title>
 			<description>Pita bread filled with traditional or spicy falafel, lettuce, tomatoes, onions, pickles, parsley and tahini sauce </description>
-			<price>Regular: $5.49</price>
-			<price2>Spicy: $5.49</price2>
+			<price>Regular or Spicy: $6.49</price>
+			<price2>With Combo: $9.29</price2>
 			<image>falafel_pocket.jpg</image>
 		</item>
 		<item>
 			<title>Shawarma Pockets</title>
 			<description>Pita bread filled with your choice of either a grilled chicken, beef or lamb patty with lettuce, tomatoes, onions, pickles, parsley and tahini sauce</description>
-			<price>Chicken or Beef: $6.49</price>
-			<price2>Lamb: $7.99</price2>
+			<price>Chicken or Beef: $7.49, with combo: 10.29</price>
+			<price2>Lamb: $8.99, with combo: $11.79</price2>
 			<image>chicken_shawarma_pocket.jpg</image>
 		</item>
 		<item>
 			<title>Kafta Pocket</title>
 			<description>Pita bread filled with a grilled beef and lamb Kafta patty, lettuce, tomatoes, onions, pickles, parsley and hummus</description>
-			<price>Pocket: $6.49</price>
-			<price2>Combo: $10.99</price2>
+			<price>Pocket: $8.29</price>
+			<price2>with combo: $10.99</price2>
 			<image>beef_shawarma_pocket.jpg</image>
 		</item>
 		<item>
 			<title>Tabouleh and Hummus Pocket</title>
 			<description>Pita bread filled with a generous mix of our hummus and tabouleh</description>
 			<price>Pocket: $5.49</price>
-			<price2> </price2>
+			<price2>with combo: $9.29</price2>
 			<image>tabouleh_hummus_pocket.jpg</image>
 		</item>
 		<item>
 			<title>Lentil Tabouleh Pocket</title>
 			<description>Pita bread filled with a generous mix of our moujadra and tabouleh</description>
-			<price>Pocket: $5.99</price>
-			<price2> </price2>
+			<price>Pocket: $6.99</price>
+			<price2>with combo: $9.79</price2>
 			<image>lentil_tabouleh_pocket.jpg</image>
 		</item>
 	</group>
-	<group title="Salads">
+	<group title="Salads" homeImage="fattoush_salad.jpg" description="A delicious salad of your choice in a crispy baked pita bowl">
 		<item>
 			<title>Fattoush Salad</title>
 			<description>A crispy baked pita bowl filled with freshly cut lettuce, tomatoes, cucumbers, onions, parsley, and seasoned with mint, sumac, and garlic, drizzled with fresh lemon juice and extra virgin olive oil dressing</description>
-			<price>Regular: $5.99</price>
-			<price2>Side: $3.99</price2>
+			<price>Salad: $7.29</price>
+			<price2> </price2>
 			<image>fattoush_salad.jpg</image>
 		</item>
 		<item>
 			<title>Shawarma Salad</title>
 			<description>A crispy baked pita bowl filled with shawarma seasoned chicken, beef, or lamb, lettuce, tomatoes, onions, pickles, and parsley, drizzled with tahini sauce</description>
-			<price>Regular Salad - Chicken or Beef: $6.99, Lamb: $8.48</price>
-			<price2>Side Salad - Chicken or Beef: $4.50, Lamb: $5.50</price2>
+			<price>Chicken or Beef: $8.49, Lamb: $9.99</price>
+			<price2> </price2>
 			<image>shawarma_salad.jpg</image>
 		</item>
 		<item>
 			<title>Falafel Salad</title>
 			<description>A crispy baked pita bowl filled with lettuce, tomatoes, onions, pickles, and parsley: topped with falafel and drizzled with tahini</description>
-			<price>Regular: $6.99</price>
-			<price2>Side: $4.50</price2>
+			<price>Salad: $8.49</price>
+			<price2> </price2>
 			<image>falafel_salad.jpg</image>
 		</item>
 		<item>
 			<title>Lentil and Cabbage</title>
 			<description>A crispy baked pita bowl filled with Moujadra (mix of lentil and rice), freshly cut cabbage and tomatoes, seasoned with garlic and drizzled with fresh lemon juice and extra virgin olive oil</description>
-			<price>Regular: $6.99</price>
-			<price2>Side: $4.50</price2>
+			<price>Salad: $8.49</price>
+			<price2> </price2>
 			<image>lentil_cabbage_salad.jpg</image>
 		</item>
 		<item>
 			<title>Bulgar Wheat</title>
 			<description>A crispy baked pita bowl filled with warm bulgur cooked in tomato sauce and topped with lettuce, tomatoes, onions, and olives; drizzled with fresh lemon juice and extra virgin olive oil</description>
-			<price>Regular: $6.99</price>
-			<price2>Side: $4.50</price2>
+			<price>Salad: $8.49</price>
+			<price2> </price2>
 			<image>bulgur_wheat_salad.jpg</image>
 		</item>
 	</group>
-	<group title="Hummus">
+	<group title="Hummus" homeImage="hummus.jpg" description="Try our six different varieties of hummus! Each comes with a side of pita bread.">
 		<item>
 			<title>Traditional Hummus</title>
 			<description>A traditional lebanese mix of chickpeas, tahini, garlic, lemon and seasonings. Available flavors: Artichoke, Roasted Red Pepper, Black Olive and Oregano, Horseradish, and Spicy!</description>
@@ -90,71 +90,71 @@
 			<image>hummus.jpg</image>
 		</item>
 	</group>
-	<group title="Tabouleh">
+	<group title="Tabouleh" homeImage="trad_tabouleh.jpg" description="Traditional or corn tabouleh, perfect as a side or with some hummus and pita bread!">
 		<item>
 			<title>Traditional Tabouleh</title>
 			<description>Our traditional Tabouleh made with the right mix of cracked wheat or corn, tomatoes, onions, parsley, drizzled with fresh lemon juice and extra virgin olive oil.</description>
-			<price>Regular: $2.99</price>
-			<price2>Large: $2.99</price2>
+			<price>Regular: $4.29</price>
+			<price2>Large: $7.49</price2>
 			<image>trad_tabouleh.jpg</image>
 		</item>
 	</group>
-	<group title="Baba Ghanouj">
+	<group title="Baba Ghanouj" homeImage="baba_ghanouj.jpg" description="Try our traditional or spicy baba ghanouj! Comes with pita bread on the side">
 		<item>
 			<title>Traditional Baba Ghanouj</title>
 			<description>BBQ Eggplants with a delicious balanced mix of tahini paste, garlic, lemon juice and spices. Also available in a spicy variation with cayenne pepper</description>
-			<price>Traditional: $4.49</price>
-			<price2>Spicy: $4.49</price2>
+			<price>Traditional: $4.99</price>
+			<price2>Spicy: $4.99</price2>
 			<image>baba_ghanouj.jpg</image>
 		</item>
 	</group>
-	<group title="Kibbe">
+	<group title="Kibbe" homeImage="kibbe_combo.jpg" description="Try some of our kibbe, available in traditional and original variety!">
 		<item>
 			<title>Stuffed Kibbe</title>
 			<description>Bulgur wheat mixed with either beef, chicken, lentils, pumpkin, or potatoes</description>
-			<price>$1.25 each</price>
-			<price2>Combo: $9.99</price2>
+			<price>$1.50 each</price>
+			<price2> </price2>
 			<image>stuffed_kibbe.jpg</image>
 		</item>
 		<item>
 			<title>Kibbe Combo</title>
 			<description>6 stuffed kibbe with a side of hummus, tabouleh, and pita bread</description>
-			<price>$9.99</price>
+			<price>$10.99</price>
 			<price2> </price2>
 			<image>kibbe_combo.jpg</image>
 		</item>
 		<item>
 			<title>Kibbe Pops</title>
 			<description>Bite-sized stuffed beef kibbe pops, also available in a combo meal for kids</description>
-			<price>Regular: $5.99</price>
+			<price>Regular: $7.29</price>
 			<price2> </price2>
-			<image>kibbe_pops.jpg</image>
+			<image>kibbe_pops_combo.jpg</image>
 		</item>
 		<item>
 			<title>Baked Kibbe</title>
 			<description>Sauteed beef and onions between two layers of beef kibbe baked to perfection</description>
-			<price>$8.99</price>
+			<price>$9.99</price>
 			<price2>Call an hour in advance!</price2>
 			<image>baked_kibbe.jpg</image>
 		</item>
 	</group>
-	<group title="Falafel">
+	<group title="Falafel" homeImage="falafel.jpg" description="Traditional or spicy falafel, goes great with tahini or hummus!">
 		<item>
 			<title>Falafel Platter</title>
 			<description>8 Falafel patties, with pita bread and toppings for two regular sized-wraps or pockets, also available in a spicy variation with cayenne pepper</description>
-			<price>$9.89</price>
+			<price>$10.49</price>
 			<price2> </price2>
 			<image>falafel_platter.jpg</image>
 		</item>
 		<item>
 			<title>Falafel Patties</title>
 			<description>Individual falafel patties made with the right blend of chick peas and fresh herbs and seasonings, also available in a spicy variation with cayenne pepper</description>
-			<price>Set of 6: $5.49</price>
-			<price2>Set of 12: $9.89</price2>
+			<price>Set of 6: $6.99</price>
+			<price2>Set of 12: $10.49</price2>
 			<image>falafel_patties.jpg</image>
 		</item>
 	</group>
-	<group title="Pies">
+	<group title="Pies" homeImage="pies.jpg" description="">
 		<item>
 			<title>Spinach Pie</title>
 			<description>Spinach, onions, lemon juice, and seasonings</description>
@@ -191,7 +191,7 @@
 			<image>cheese_pie.jpg</image>
 		</item>
 	</group>
-	<group title="Soups">
+	<group title="Soups" homeImage="soups.jpg" description="Try our hot soups! Each comes with fresh pita chips on the side!">
 		<item>
 			<title>Lentil Soup</title>
 			<description>Lightly seasoned boiled red lentils mixed with rice</description>
@@ -202,19 +202,19 @@
 		<item>
 			<title>Kibbe Soup</title>
 			<description>Beef kibbe boiled in tomato, garlic, and mint broth</description>
-			<price>null</price>
+			<price>Small: $3.69, Medium: $5.49, Large: $9.99</price>
 			<price2> </price2>
 			<image>kibbe_soup.jpg</image>
 		</item>
 		<item>
 			<title>Chicken Soup</title>
 			<description>Chicken with vegetables and rice</description>
-			<price>null</price>
+			<price>Small: $3.69, Medium: $5.49, Large: $9.99</price>
 			<price2> </price2>
 			<image>chicken_soup.jpg</image>
 		</item>
 	</group>
-	<group title="Sides">
+	<group title="Sides" homeImage="sides.jpg" description="Need a little something extra?">
 		<item>
 			<title>Moujadra</title>
 			<description>Warm lentils with sauteed onions and rice</description>
@@ -222,109 +222,122 @@
 			<price2> </price2>
 			<image>moujadra.jpg</image>
 		</item>
-		
-	</group>
-	<group title="Platters">
 		<item>
-			<title>Chicken Shish Taouk Platter</title>
+			<title>Bulgur Wheat</title>
+			<description>Warm bulgur wheat cooked in a tomato broth</description>
+			<price>$3.99</price>
+			<price2> </price2>
+			<image>moujadra.jpg</image>
+		</item>
+		<item>
+			<title>Stuffed Grape Leaves</title>
+			<description>Traditional lebanese stuffed grape leaves prepared in vegetarian or lamb varieties</description>
+			<price>Vegetarian: $7.99</price>
+			<price2>Lamb: $9.99</price2>
+			<image>grapeleaves.jpg</image>
+		</item>		
+	</group>
+	<group title="Platters" homeImage="sheesh_taouk_platter.jpg" description="Perfect for a hearty lunch or dinner, our kebab platters are grilled to perfection and come with rice, hummus, tabouleh, garlic sauce, and pita bread. Delicious!">
+		<item>
+			<title>Chicken Sheesh Taouk Platter</title>
 			<description>Grilled chicken kebabs marinated in garlic sauce, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
-			<price>$12.99</price>
-			<price2>placeholder.png</price2>
-			<image>shish_taouk_platter.jpg</image>
+			<price>Meal: $12.99</price>
+			<price2> </price2>
+			<image>sheesh_taouk_platter.jpg</image>
 		</item>
 		<item>
 			<title>Beef Kebab Platter</title>
 			<description>Grilled and seasoned beef tenderloin kebabs, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
-			<price>$15.99</price>
-			<price2>placeholder.png</price2>
+			<price>Meal: $15.99</price>
+			<price2> </price2>
 			<image>beef_kebab_platter.jpg</image>
 		</item>
 		<item>
 			<title>Lamb Kebab Platter</title>
 			<description>Grilled and seasoned lamb tenderloin kebabs, served over white rice with a side of hummus, tabouleh, pita bread, and garlic sauce</description>
-			<price>$21.99</price>
-			<price2>placeholder.png</price2>
+			<price>Meal: $21.99</price>
+			<price2> </price2>
 			<image>lamb_kebab_platter.jpg</image>
 		</item>
 	</group>
-	<group title="Baklava">
+	<group title="Baklava" homeImage="baklava.jpg" description="Try our fresh-baked baklava, each piece prepared here in our own kitchen">
 		<item>
 			<title>Baklava</title>
 			<description>Home-made baklava squares with pistachios, walnuts, or cashews inbetween layers of filo dough drizzled with simple syrup</description>
-			<price>$2.11</price>
-			<price2>placeholder.png</price2>
+			<price>$1.75</price>
+			<price2> </price2>
 			<image>baklava.jpg</image>
 		</item>
 		<item>
 			<title>Baklava Fingers</title>
 			<description>Crushed pistachios, walnuts, cashews, or almonds wrapped in layers of filo dough drizzled with simple syrup</description>
-			<price>$2.11</price>
-			<price2>placeholder.png</price2>
+			<price>$1.50</price>
+			<price2> </price2>
 			<image>baklava_fingers.jpg</image>
 		</item>
 		<item>
 			<title>Cinnamon Walnut Log</title>
-			<description>A cinnamon walnut log.</description>
-			<price>$2.11</price>
-			<price2>placeholder.png</price2>
+			<description> </description>
+			<price>$2.99</price>
+			<price2> </price2>
 			<image>cinnamon_walnut_logs.jpg</image>
 		</item>
 		<item>
 			<title>Maamoul</title>
-			<description>A maamoul.</description>
-			<price>$2.11</price>
-			<price2>placeholder.png</price2>
+			<description> </description>
+			<price>$2.00</price>
+			<price2> </price2>
 			<image>maamoul.jpg</image>
 		</item>
 		<item>
 			<title>Truffles</title>
-			<description>Pistachio or hazelnut truffles. also comes in hazelnut variety.</description>
-			<price>$2.11</price>
-			<price2>placeholder.png</price2>
+			<description>Chocolate truffles coated in crushed pistachios or hazelnut.</description>
+			<price>$1.25</price>
+			<price2> </price2>
 			<image>truffles.jpg</image>
 		</item>
 	</group>
-	<group title="Flatbreads">
+	<group title="Flatbreads" homeImage="flatbreads.jpg" description='Freshly baked 8" flatbreads'>
 		<item>
 			<title>Wild Oregano Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our oregano mix, topped with labneh, tomatoes, cucumbers, olives and mint</description>
+			<price>Flatbread: $5.99</price>
+			<price2> </price2>
 			<image>wild_oregano_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Goat Cheese Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our special mix of goat cheese, tomatoes, and onions</description>
+			<price>Flatbread: $6.99</price>
+			<price2> </price2>
 			<image>goat_cheese_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Potato Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our potato mix, topped with tomatoes, parsley, black olives, and extra virgin olive oil</description>
+			<price>Flatbread: $7.99</price>
+			<price2> </price2>
 			<image>potato_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Falafel Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our falafel mix topped with tomatoes, onions, pickles, parsley, and tahini</description>
+			<price>Flatbread: $7.99</price>
+			<price2> </price2>
 			<image>falafel_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Fava Bean Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our mix of fava beans and chick peas, seasoned with garlic, topped with tomatoes, scallions, parsley, mint, and extra virgin olive oil</description>
+			<price>Flatbread: $7.99</price>
+			<price2> </price2>
 			<image>fava_bean_flatbread_01.JPG</image>
 		</item>
 		<item>
 			<title>Garlic Chicken Flatbread</title>
-			<description>A Flatbread!</description>
-			<price>$5.99</price>
-			<price2>placeholder.png</price2>
+			<description>Our special garlic sauce, topped with chicken, pickles, and tomatoes</description>
+			<price>Flatbread: $9.99</price>
+			<price2> </price2>
 			<image>garlic_chicken_flatbread_01.JPG</image>
 		</item>
 	</group>

@@ -31,6 +31,13 @@ var slides = 0,
 
 showAndroidToast("slideshow.js declarations complete");
 
+function imgError(image) {
+    image.onerror = "";
+    image.src = "img/photos/placeholder.jpg";
+    image.alt = "disabled";
+    return true;
+}
+
 
 function toggleMenu(){
     showAndroidToast("executing toggleMenu()");
@@ -102,18 +109,6 @@ function showItems(groupNumber){
 
 function showItem(groupNumber, itemNumber){    
 
-    $('#menuSlides').eq(0).attr('class','slidesHidden');
-    $('#slides').eq(0).attr('class','slidesVisible');
-    menuSlidesActive = false;
-
-    if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem' && itemNumber >=0)
-    {
-        $('#items li').eq(itemNumber+1).attr('class','selectedItem');
-        $('#items li').eq(selectedItem).attr('class','unselectedItem');
-        selectedItem = itemNumber+1;
-        currentGroup = groupNumber;
-    }
-
     if(itemNumber == -1)
     {
         $('#menus').eq(0).attr('class','visibleMenus')
@@ -124,9 +119,29 @@ function showItem(groupNumber, itemNumber){
         menuSlidesActive = true;
         loadImage(currentGroup);
     }
+    else if (checkImage(item_offset[groupNumber] + itemNumber))
+    {
+
+        $('#menuSlides').eq(0).attr('class','slidesHidden');
+        $('#slides').eq(0).attr('class','slidesVisible');
+        menuSlidesActive = false;
+
+        if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem' && itemNumber >=0)
+        {
+            $('#items li').eq(itemNumber+1).attr('class','selectedItem');
+            $('#items li').eq(selectedItem).attr('class','unselectedItem');
+            selectedItem = itemNumber+1;
+            currentGroup = groupNumber;
+
+            loadImage(item_offset[groupNumber] + itemNumber);
+        }
+    }
     else
     {
-        loadImage(item_offset[groupNumber] + itemNumber);
+        $('#items li').eq(itemNumber+1).attr('class','selectedItem');
+        $('#items li').eq(selectedItem).attr('class','unselectedItem');
+        selectedItem = itemNumber+1;
+        currentGroup = groupNumber;
     }
 }
 
@@ -141,6 +156,15 @@ function getGroupByItem(itemNumber)
     }
 }
 
+function checkImage(x)
+{
+    var li             = slides.eq(x),
+        image          = li.find('img');
+    if(image[0].alt == "disabled")
+        return false;
+    return true;
+}
+
 function loadImage(x){
     if(menuSlidesActive == true)
     {
@@ -152,6 +176,7 @@ function loadImage(x){
         //Update Description box
         $("#dbTitle")[0].innerHTML=list_of_menus[x].getAttribute("title");
         $("#itemPrice")[0].innerHTML="";
+        $("#itemPrice2")[0].innerHTML="";
         $("#itemText")[0].innerHTML=list_of_menus[x].getAttribute("description");
 
         //Update the active slide and last slide
@@ -257,7 +282,7 @@ $(window).load(function(){
     for (i = 0; i < list_of_items.length; i++){
         $('#slides').append('<li id="slide" class="slide" ><img src="img/photos/'+
             list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" height="800" width="600" class="slideshowImageFull" alt="'+
-            list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" /></li>');
+            list_of_items[i].getElementsByTagName("image")[0].childNodes[0].nodeValue+'" onerror="imgError(this);" /></li>');
     }
 
     slides = $('.slide'),
@@ -274,6 +299,7 @@ $(window).load(function(){
             {   
                 var x=xmlDoc.getElementsByTagName("item");   
                 var nextItem = currentItem >= x.length-1 ? 0 : currentItem+1;
+                while(!checkImage(nextItem)) nextItem++;
                 loadImage(nextItem);
             }
             menuLastSwitched = d;
@@ -293,8 +319,28 @@ $(window).load(function(){
 
     //Add swipe recognition
     $("#slideshow").touchwipe({
-         wipeRight: function() { loadImage(currentItem <= 0 ? x.length-1 : currentItem-1); menuLastSwitched = new Date();},
-         wipeLeft: function() { loadImage(currentItem >= x.length-1 ? 0 : currentItem+1); menuLastSwitched = new Date();},
+         wipeRight: function() { 
+            nextImage = currentItem-1;
+            while(nextImage < 0 || !checkImage(nextImage)){
+                if(nextImage < 0) 
+                    nextImage = list_of_items.length-1;
+                else
+                    nextImage--;
+            }
+            loadImage(nextImage);
+            menuLastSwitched = new Date();
+        },
+         wipeLeft: function() {
+            nextImage = currentItem + 1;
+            while(nextImage > list_of_items.length-1 || !checkImage(nextImage)){
+                if(nextImage > list_of_items.length-1)
+                    nextImage = 0;
+                else
+                    nextImage++;
+            }
+            loadImage(nextImage);
+            menuLastSwitched = new Date();
+        },
          wipeUp: function() { alert("up"); },
          wipeDown: function() { alert("down"); },
          min_move_x: 20,
