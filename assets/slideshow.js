@@ -341,8 +341,8 @@ $(window).load(function(){
             loadImage(nextImage);
             menuLastSwitched = new Date();
         },
-         wipeUp: function() { alert("up"); },
-         wipeDown: function() { alert("down"); },
+         wipeUp: function() { return; },
+         wipeDown: function() { return; },
          min_move_x: 20,
          min_move_y: 20,
          preventDefaultEvents: true
