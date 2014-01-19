@@ -4,6 +4,7 @@ var menuDisplay             = false;
 var menuSlidesActive        = false;
 var selectedItem            = -1;
 var menuSwitchTime          = 1000;
+var menuIdleTime            = 10000;
 var menuLastSwitched        = 0;
 var fadeTransitions         = true;
 
@@ -166,6 +167,8 @@ function checkImage(x)
 }
 
 function loadImage(x){
+    d = new Date();
+    menuLastSwitched = d;
     if(menuSlidesActive == true)
     {
         lastSlide.className= "slide";
@@ -304,6 +307,13 @@ $(window).load(function(){
             }
             menuLastSwitched = d;
         }
+        else
+        {
+            d = new Date();
+            if(d-menuLastSwitched > menuIdleTime)
+                toggleMenu();
+            menuLastSwitched = d;
+        }
     }, 10000);
 
     images = document.getElementsByClassName('slideshowImageFull') //.each(function(){
@@ -320,26 +330,32 @@ $(window).load(function(){
     //Add swipe recognition
     $("#slideshow").touchwipe({
          wipeRight: function() { 
-            nextImage = currentItem-1;
-            while(nextImage < 0 || !checkImage(nextImage)){
-                if(nextImage < 0) 
-                    nextImage = list_of_items.length-1;
-                else
-                    nextImage--;
+            if(!menuSlidesActive)
+            {
+                nextImage = currentItem-1;
+                while(nextImage < 0 || !checkImage(nextImage)){
+                    if(nextImage < 0) 
+                        nextImage = list_of_items.length-1;
+                    else
+                        nextImage--;
+                }
+                loadImage(nextImage);
+                menuLastSwitched = new Date();
             }
-            loadImage(nextImage);
-            menuLastSwitched = new Date();
         },
          wipeLeft: function() {
-            nextImage = currentItem + 1;
-            while(nextImage > list_of_items.length-1 || !checkImage(nextImage)){
-                if(nextImage > list_of_items.length-1)
-                    nextImage = 0;
-                else
-                    nextImage++;
+            if(!menuSlidesActive)
+            {
+                nextImage = currentItem + 1;
+                while(nextImage > list_of_items.length-1 || !checkImage(nextImage)){
+                    if(nextImage > list_of_items.length-1)
+                        nextImage = 0;
+                    else
+                        nextImage++;
+                }
+                loadImage(nextImage);
+                menuLastSwitched = new Date();
             }
-            loadImage(nextImage);
-            menuLastSwitched = new Date();
         },
          wipeUp: function() { return; },
          wipeDown: function() { return; },
