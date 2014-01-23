@@ -72,6 +72,10 @@ function toggleMenu(){
             document.getElementById('slideshow').className='slideshowFull';
             document.getElementById('descriptionBox').className='visibleDB';
             document.getElementById('dbTip').innerText=("Touch here for more information!");
+            if(menuSlidesActive)
+            {
+                closeMenu();
+            }
         }    
     }
 }
@@ -80,7 +84,7 @@ function closeMenu(){
     $('#menuSlides').eq(0).attr('class','slidesHidden');
     $('#slides').eq(0).attr('class','slidesVisible');
     menuSlidesActive = false;
-    loadImage(currentSlide);
+    showItem(currentGroup, 0);
 }
 
 function showItems(groupNumber){
