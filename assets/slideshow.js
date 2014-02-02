@@ -60,6 +60,7 @@ function toggleMenu(){
             //Update CSS
             document.getElementById('slideshow').className='slideshowSmall';
             document.getElementById('descriptionBox').className='hiddenDB';
+            document.getElementById('toggleMenuButton').className='toggleMenuButtonHidden';
             document.getElementById('dbTip').innerText=("Press here to go back to the slideshow");
 
         }
@@ -71,6 +72,7 @@ function toggleMenu(){
             //update CSS
             document.getElementById('slideshow').className='slideshowFull';
             document.getElementById('descriptionBox').className='visibleDB';
+            document.getElementById('toggleMenuButton').className='toggleMenuButtonVisible';
             document.getElementById('dbTip').innerText=("Touch here for more information!");
             if(menuSlidesActive)
             {

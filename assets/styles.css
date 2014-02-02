@@ -191,6 +191,52 @@ body{
     box-shadow:0 0 22px #111;
 }
 
+.toggleMenuButtonVisible{
+    background-color:#D2ED64;
+    border-radius:25px; 
+    text-align:center;
+    font-size:175%;
+
+    width:25%;
+    height:35px;
+    left:67.5%;
+    top:8.5%;
+    position:absolute;
+
+    padding:5px;
+    z-index:10000;
+
+    -webkit-transition: left 0.5s, top 0.5s, opacity 0.5s;
+
+    -moz-box-shadow:0 0 22px #111;
+    -webkit-box-shadow:0 0 22px #111;
+    box-shadow:0 0 22px #111;
+}
+
+.toggleMenuButtonHidden{
+    background-color:#D2ED64;
+    border-radius:25px; 
+    text-align:center;
+    font-size:175%;
+
+    width:25%;
+    height:35px;
+    left:67.5%;
+    top:0%;
+    position:absolute;
+    padding:5px;
+
+    z-index:10000;
+    opacity:0;
+
+    -webkit-transition: left 1s, top 1s, opacity 1s;
+
+    -moz-box-shadow:0 0 22px #111;
+    -webkit-box-shadow:0 0 22px #111;
+    box-shadow:0 0 22px #111;
+}
+
+
 #dbTitle{
     font-weight:bold;
     font-style:italic;
