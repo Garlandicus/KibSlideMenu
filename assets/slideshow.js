@@ -100,7 +100,7 @@ function showItems(groupNumber){
             list_of_menus[groupNumber].childNodes[i*2+1].childNodes[1].textContent+'</li>');
     }
     //Add the Back button
-    $('#items').append('<li id="menu" class="backItem" onclick="showItem(0,-1)">Back to Main Menu</li>');
+    $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem(0,-1)">Back</li>');
 
     $('#menus').eq(0).attr('class','hiddenMenus');
     $('#items').eq(0).attr('class','visibleItems');
@@ -133,7 +133,7 @@ function showItem(groupNumber, itemNumber){
         $('#slides').eq(0).attr('class','slidesVisible');
         menuSlidesActive = false;
 
-        if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem' && itemNumber >=0 && selectedItem >= 0)
+        if($('#items li').eq(itemNumber+1).attr('class') != 'selectedItem' && itemNumber >=0)
         {
             $('#items li').eq(itemNumber+1).attr('class','selectedItem');
             $('#items li').eq(selectedItem).attr('class','unselectedItem');
