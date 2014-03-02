@@ -33,7 +33,7 @@ body{
 
 .hiddenMenus{
     height:80%;
-    width:10%;
+    width:9%;
     left:15%;
     top:5%;
     position:absolute;
@@ -48,7 +48,7 @@ body{
 
 .visibleMenus{
     height:80%;
-    width:10%;
+    width:9%;
     left:5%;
     top:5%;
     position:absolute;
@@ -65,7 +65,7 @@ body{
 
 .hiddenItems{
     height:80%;
-    width:10%;
+    width:9%;
     left:15%;
     top:5%;
     position:absolute;
@@ -80,7 +80,7 @@ body{
 
 .visibleItems{
     height:80%;
-    width:10%;
+    width:9%;
     left:5%;
     top:5%;
     position:absolute;
