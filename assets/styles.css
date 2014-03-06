@@ -5,6 +5,11 @@ body{
     overflow:hidden;
 }
 
+.dontzoom{
+    height:100%;
+    width:100%;
+}
+
 .menuDescription{
     border-width:0px;
     border-top-width:0px;
