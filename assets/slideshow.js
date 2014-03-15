@@ -300,6 +300,7 @@ $(window).load(function(){
     slideshow = {width:0,height:0};
 
     window.setInterval(function() {
+    	document.body.style.zoom="100%"
         if(!menuDisplay)
         {
 
