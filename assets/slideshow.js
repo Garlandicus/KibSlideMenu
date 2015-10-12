@@ -93,7 +93,7 @@ function showItems(groupNumber){
     $('#items li').remove();
 
     //Add the Item Group Header
-    $('#items').append('<li id="menu" class="unselectedItem" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].childNodes[0].nodeValue+'</li>');
+    $('#items').append('<li id="menu" class="unselectedItem" style="font-size:150%; border-radius:25px; text-align:center">'+list_of_menus[groupNumber].attributes[0].nodeValue+'</li>');
     //Add the Individual Items
     for(i=0; i< list_of_menus[groupNumber].childElementCount; i++){
         $('#items').append('<li id="menu" class="unselectedItem" onclick="showItem('+groupNumber+','+i+')">'+
